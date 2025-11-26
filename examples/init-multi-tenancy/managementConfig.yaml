@@ -36,3 +36,9 @@ content:
   namespaces:
     - tenant1-argocd
   variables:
+scm:
+  scmProviderType: "GITLAB"
+  gitlab:
+    url: "https://gitlab.com"
+    password: "glpat-g0ozdhwAn_8kbGVv3dtwlW86MQp1OmlvczJuCw.01.121ifg7v7"
+    parentGroupId: "119345611"
