@@ -34,7 +34,7 @@ content:
       overwriteMode: UPGRADE
 
   namespaces:
-    - tenant1-argocd
+    - t1-scmm-argocd
   variables:
 scm:
   scmProviderType: "GITLAB"
