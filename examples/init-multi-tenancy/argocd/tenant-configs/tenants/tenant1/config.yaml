@@ -7,6 +7,15 @@ config:
   content:
     examples: true
     repos:
+      - url: https://github.com/cloudogu/gitops-build-lib
+        target: 3rd-party-dependencies/gitops-build-lib
+        overwriteMode: RESET
+      - url: https://github.com/cloudogu/ces-build-lib
+        target: 3rd-party-dependencies/ces-build-lib
+        overwriteMode: RESET
+      - url: https://github.com/cloudogu/spring-boot-helm-chart
+        target: 3rd-party-dependencies/spring-boot-helm-chart
+        overwriteMode: RESET
       - url: https://github.com/cloudogu/spring-petclinic
         target: argocd/petclinic-plain
         ref: feature/gitops_ready
