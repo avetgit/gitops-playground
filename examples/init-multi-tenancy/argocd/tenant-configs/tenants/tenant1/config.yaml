@@ -1,8 +1,8 @@
 config:
   application:
-    baseUrl: "http://tenant1.localhost"
-    namePrefix: "tenant1"
+    baseUrl: "http://t1-scmm.localhost"
+    namePrefix: "t1-scmm"
   registry:
-    active: true
+    url: "http://localhost:30000"
   content:
     examples: true
