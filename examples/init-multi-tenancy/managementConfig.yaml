@@ -6,7 +6,7 @@ application:
   "yes": true
   namePrefix: "operator"
   namespaceIsolation: false
-  skipCrds: false
+  skipCrds: true
   clusterAdmin: true
 jenkins:
   active: false
@@ -32,10 +32,43 @@ content:
       templating: true
       type: FOLDER_BASED
       overwriteMode: UPGRADE
+    - url: https://github.com/cloudogu/spring-petclinic
+      target: argocd/petclinic-plain
+      ref: feature/gitops_ready
+      targetRef: main
+      overwriteMode: UPGRADE
+      createJenkinsJob: true
+    - url: https://github.com/cloudogu/spring-petclinic
+      target: argocd/petclinic-helm
+      ref: feature/gitops_ready
+      targetRef: main
+      overwriteMode: UPGRADE
+      createJenkinsJob: true
+    - url: https://github.com/avetgit/gitops-playground
+      path: examples/example-apps-via-content-loader/
+      ref: feature/init-multi-tenancy
+      templating: true
+      type: FOLDER_BASED
+      overwriteMode: UPGRADE
 
   namespaces:
     - t1-scmm-argocd
+    - t1-scmm-example-apps-production
+    - t1-scmm-example-apps-staging
   variables:
+    petclinic:
+      baseDomain: "petclinic.localhost"
+    nginx:
+      baseDomain: "nginx.localhost"
+    images:
+      kubectl: "bitnamilegacy/kubectl:1.29"
+      helm: "ghcr.io/cloudogu/helm:3.16.4-1"
+      kubeval: "ghcr.io/cloudogu/helm:3.16.4-1"
+      helmKubeval: "ghcr.io/cloudogu/helm:3.16.4-1"
+      yamllint: "cytopia/yamllint:1.25-0.7"
+      nginx: ""
+      petclinic: "eclipse-temurin:17-jre-alpine"
+      maven: ""
 scm:
   scmProviderType: "GITLAB"
   gitlab:
