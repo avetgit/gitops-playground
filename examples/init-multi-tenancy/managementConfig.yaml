@@ -32,7 +32,6 @@ content:
       templating: true
       type: FOLDER_BASED
       overwriteMode: UPGRADE
-
   namespaces:
     - t1-scmm-argocd
   variables:
